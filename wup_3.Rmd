@@ -62,4 +62,4 @@ plot(TukeyHSD(model1))
 There is a significant difference between drinks consumed by the people in the back row when compared to the front row. When we subtract the drinks consumed by the back row versus the front row we get a negative number. The individuals in the back row are drinking more than the people on the front. The p-value is 0.000116. However,  there is no evidence that there is a difference betwwen the middle row and the front row. One of the numbers is zero.  
 
 ## Conclusions
-I reject the null hypothesis. There is a significant difference between at least two rows the front and back row. 
+I reject the null hypothesis. There is a significant difference between at least two rows the front and back row. The p-value is 0.000116 whuch is less than 0.05. It appears that when comparing at least two rows, the front and the back, the back row is drinking more then the the 75th percentile of the front row.
