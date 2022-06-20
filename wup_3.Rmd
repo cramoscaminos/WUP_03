@@ -38,6 +38,7 @@ basicCN + geom_boxplot()
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
+  
 By looking at the box plots it appears that the people in the back row are drinking more heavily than those individuals who sit in either the front or the middles rows. The middle of the back row is drinking more then the the 75th percentile of either the front or back row.  The variability in the back row is bigger than the either the front or the back row. This is represented by the wedges in the box plot or standard deviation.   
 
 ## Numerical Summarys
@@ -58,7 +59,7 @@ summary.aov(model1)
 plot(TukeyHSD(model1))
 ```
 
-There is a  difference between drinks consumed by the people in the back row when compared the the middle row, but there is a significant difference between the back row and front row. The individuals in the back row are drinking more than the people on the front. The p-value is 0.000116 when we subtract the drinks from the back row compared to the front row we get a negative number.  
+There is a significant difference between drinks consumed by the people in the back row when compared to the front row. When we subtract the drinks consumed by the back row versus the front row we get a negative number. The individuals in the back row are drinking more than the people on the front. The p-value is 0.000116. However,  there is no evidence that there is a difference betwwen the middle row and the front row. One of the numbers is zero.  
 
 ## Conclusions
 I reject the null hypothesis. There is a significant difference between at least two rows the front and back row. 
