@@ -1,8 +1,8 @@
 ---
-title: "Alcohol vs Seat choice"
-author: "Carmen Ramos-Caminos"
-date: "June 16, 2022"
-output: html_document
+title:"Alcohol vs Seat choice"
+author:"Carmen Ramos-Caminos" 
+date:"June 16, 2022".  
+output:html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -38,11 +38,27 @@ basicCN + geom_boxplot()
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
+By looking at the box plots it appears that the people in the back row are drinking more heavily than those individuals who sit in either the front or the middles rows. The middle of the back row is drinking more then the the 75th percentile of either the front or back row.  The variability in the back row is bigger than the either the front or the back row. This is represented by the wedges in the box plot or standard deviation.   
 
-## Numerical Summarys 
+## Numerical Summarys
 
-## Inferential Tests
+```{r}
+favstats(alcohol~Seat, data=davisdata)
+```
+
+The back row average is 9.6 which is much bigger than the averages for the front 1.8 and the middle 3.2. The majority of people are sitting in the middle section. However, the majority of people sitting in the back section are drinking 3x more than the middle 9x more than the front. 
+  
+## Inferential Tests.  
+```{r}
+model1 <- aov(alcohol~Seat, data=davisdata)
+summary.aov(model1)
+```
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+There is a  difference between drinks consumed by the people in the back row when compared the the middle row, but there is a significant difference between the back row and front row. The individuals in the back row are drinking more than the people on the front. The p-value is 0.000116 when we subtract the drinks from the back row compared to the front row we get a negative number.  
 
 ## Conclusions
-
-
+I reject the null hypothesis. There is a significant difference between at least two rows the front and back row. 
